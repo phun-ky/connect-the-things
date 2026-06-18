@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+
+    <style type="text/css">
+      .box {
+        border: 2px solid black;
+        height: 8rem;
+        width: 8rem;
+        position: absolute;
+        border-radius: 6px;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="box" id="_ykwa49opu" style="left: 49vw; top: 45vh"></div>
+      <div class="box" id="_zhwr5ok33" style="left: 72vw; top: 73vh"></div>
+      <div class="box" id="_rt5otr3mt" style="left: 17vw; top: 79vh"></div>
+      <div class="box" id="_e86x7wtmv" style="left: 27vw; top: 58vh"></div>
+      <div class="box" id="_9c6x5wn2v" style="left: 57vw; top: 18vh"></div>
+      <div class="box" id="_0vmoonp08" style="left: 13vw; top: 29vh"></div>
+    </section>
+    <div id="app">
+      <section></section>
+    </div>
+
+    <svg
+      class="ctt"
+      viewBox="0 0"
+      id="ctt-svg"
+      xmlns="http://www.w3.org/2000/svg"
+    ></svg>
+    <script>
+      // const random = (max, min) =>
+      //   Math.floor(Math.random() * (max - min + 1)) + min;
+
+      // const container = document.querySelector('#app section');
+      // const boxes = random(10, 5);
+
+      // for (let i = 0; i < boxes; i++) {
+      //   const box = document.createElement('div');
+      //   box.classList.add('box');
+      //   box.setAttribute(
+      //     'id',
+      //     '_' + Math.random().toString(36).substring(2, 11)
+      //   );
+      //   box.style.left = `${random(80, 10)}vw`;
+      //   box.style.top = `${random(80, 10)}vh`;
+      //   container.appendChild(box);
+      // }
+    </script>
+    <script type="module">
+      import { createConnections } from './src/main.ts';
+      const boxes = document.querySelectorAll('.box');
+      const total = boxes.length;
+      const connectionDefinitions = [...boxes].map((box) => {
+        // Create a list of stop candidates, excluding the current box
+        const stopCandidates = [...boxes].filter((b) => b !== box);
+
+        // Pick a random stopElement from the filtered list
+        const stopElement =
+          stopCandidates[Math.floor(Math.random() * stopCandidates.length)];
+
+        return {
+          startElement: box, // Always the current box
+          stopElement: stopElement
+        };
+      });
+
+      createConnections(connectionDefinitions);
+    </script>
+  </body>
+</html>

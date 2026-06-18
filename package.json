@@ -1,0 +1,47 @@
+{
+  "name": "connect-the-things",
+  "version": "0.0.0",
+  "description": "A helper to draw lines between things",
+  "keywords": [
+    "connect",
+    "svg",
+    "string",
+    "line"
+  ],
+  "homepage": "https://github.com/phun-ky/connect-the-things#readme",
+  "bugs": {
+    "url": "https://github.com/phun-ky/connect-the-things/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phun-ky/connect-the-things.git"
+  },
+  "license": "MIT",
+  "author": "Alexander Vassbotn Røyne-Helgesen <alexander@phun-ky.net>",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc && vite build",
+    "commit": "npx git-cz",
+    "dev": "vite --force",
+    "preview": "vite preview",
+    "release": "release-it",
+    "test": "glob -c \"node --import tsx --import global-jsdom/register --test --no-warnings\" \"./src/**/__tests__/**/*.spec.[jt]s\""
+  },
+  "dependencies": {
+    "@phun-ky/angle": "^1.0.6",
+    "@phun-ky/cardinal": "^2.0.1",
+    "@phun-ky/typeof": "^1.2.3"
+  },
+  "devDependencies": {
+    "@release-it/conventional-changelog": "^10.0.0",
+    "eslint": "^9.26.0",
+    "eslint-config-phun-ky": "^1.0.0",
+    "git-cz": "^4.9.0",
+    "globals": "^16.0.0",
+    "prettier": "3.5.1",
+    "release-it": "^18.1.2",
+    "typescript": "~5.7.2",
+    "vite": "^6.2.0"
+  }
+}
